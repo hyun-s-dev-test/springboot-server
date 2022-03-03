@@ -32,4 +32,19 @@ public class UserController {
     public ResponseEntity<List<UserResponseDto>> getAllUserInfo() {
         return new ResponseEntity<>(userService.findAllUser(), HttpStatus.OK);
     }
+
+    @Operation(summary = "아이디로 유저 조회", description = "입력한 아이디와 동일한 유저의 정보를 가져옵니다.(비밀번호, 토큰 제외)")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "OK!"),
+            @ApiResponse(code = 400, message = "BAD REQUEST!"),
+            @ApiResponse(code = 404, message = "NOT FOUND!"),
+            @ApiResponse(code = 500, message = "INTERNAL SERVER ERROR!"),
+    })
+    @GetMapping("/{id}")
+    public ResponseEntity<UserResponseDto> getUserInfoById(@PathVariable String id) {
+        UserResponseDto userResponseDto = userService.findUserById(id);
+
+        return new ResponseEntity<>(userResponseDto,
+                (userResponseDto != null) ? HttpStatus.OK : HttpStatus.NO_CONTENT);
+    }
 }

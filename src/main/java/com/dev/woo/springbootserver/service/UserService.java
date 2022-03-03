@@ -21,4 +21,7 @@ public class UserService {
                 .collect(Collectors.toList());
     }
 
+    public UserResponseDto findUserById(String id) {
+        return new UserResponseDto(userRepository.findById(id));
+    }
 }
