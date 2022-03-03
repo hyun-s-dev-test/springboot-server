@@ -62,14 +62,14 @@ jobs:
         --region ap-northeast-2 \
         ./springboot-build.zip s3://0woodev-springboot-bucket/springboot-build.zip
         
-#     - name: Deploy
-#       env:
-#         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-#         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-#       run: |
-#         aws deploy create-deployment \
-#         --application-name loginapp \
-#         --deployment-group-name dev \
-#         --file-exists-behavior OVERWRITE \
-#         --s3-location bucket=0woodev-springboot-bucket,bundleType=zip,key=springboot-build.zip \
-#         --region ap-northeast-2
+     - name: Deploy
+       env:
+         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+       run: |
+         aws deploy create-deployment \
+         --application-name login \
+         --deployment-group-name springboot-deploy-group \
+         --file-exists-behavior OVERWRITE \
+         --s3-location bucket=0woodev-springboot-bucket,bundleType=zip,key=springboot-build.zip \
+         --region ap-northeast-2
