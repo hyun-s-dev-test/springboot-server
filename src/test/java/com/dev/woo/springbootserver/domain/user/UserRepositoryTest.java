@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.LocalDate;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
@@ -25,7 +27,7 @@ public class UserRepositoryTest {
     public void 유저저장후_불러오기() throws Exception {
         // given
         User user = new User("테스트", "test", "password",
-                'M', "none", "");
+                'M', "none", LocalDate.now(),"", Role.USER);
         // save
         userRepository.save(User.builder()
                 .id(user.getId())

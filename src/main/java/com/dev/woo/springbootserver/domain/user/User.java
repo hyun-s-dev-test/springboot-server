@@ -23,7 +23,7 @@ public class User extends BaseTimeEntity {
     @Column(unique = true, nullable = false)
     private String id;
 
-    @Column(nullable = false)
+    @Column
     private String password;
 
     @Column
@@ -38,13 +38,24 @@ public class User extends BaseTimeEntity {
     @Column
     private String token;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Role role;
+
+
     @Builder
-    public User(String name, String id, String password, char gender, String socialType, String token) {
+    public User(String name, String id, String password, char gender, String socialType, LocalDate birth, String token, Role role) {
         this.name = name;
         this.id = id;
         this.password = password;
         this.gender = gender;
         this.socialType = socialType;
         this.token = token;
+        this.birth = birth;
+        this.role = role;
+    }
+
+    public String getRoleKey() {
+        return this.role.getKey();
     }
 }
