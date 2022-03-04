@@ -18,13 +18,13 @@ public class UserRepositoryTest {
 
     @After
     public void cleanup() {
-        userRepository.deleteAll();
+        userRepository.deleteAllById("test");
     }
 
     @Test
     public void 유저저장후_불러오기() throws Exception {
         // given
-        User user = new User("남영우", "0woodev", "password",
+        User user = new User("테스트", "test", "password",
                 'M', "none", "");
         // save
         userRepository.save(User.builder()
