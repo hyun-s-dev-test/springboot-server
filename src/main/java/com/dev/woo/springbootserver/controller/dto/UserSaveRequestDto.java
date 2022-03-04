@@ -1,5 +1,6 @@
 package com.dev.woo.springbootserver.controller.dto;
 
+import com.dev.woo.springbootserver.domain.user.Role;
 import com.dev.woo.springbootserver.domain.user.User;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -47,6 +48,7 @@ public class UserSaveRequestDto {
                 .gender(gender)
                 .socialType(socialType)
                 .token(token)
+                .role(Role.USER)
                 .build();
     }
 }
