@@ -8,8 +8,10 @@ import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
+@EnableSwagger2
 public class SwaggerConfig {
 
     @Bean
@@ -17,8 +19,8 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.OAS_30)
                 .useDefaultResponseMessages(false)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.dev.woo.springbootserver.controller"))
-                .paths(PathSelectors.any())
+                    .apis(RequestHandlerSelectors.basePackage("com.dev.woo.springbootserver.controller"))
+                    .paths(PathSelectors.any())
                 .build()
                 .apiInfo(apiInfo());
     }
@@ -28,6 +30,7 @@ public class SwaggerConfig {
                 .title("Hyun's Test API Server")
                 .description("This document for API")
                 .version("1.0")
+                .license("0woodev@gmail.com")
                 .build();
     }
 }
