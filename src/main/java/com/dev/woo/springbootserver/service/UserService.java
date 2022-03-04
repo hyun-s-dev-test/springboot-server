@@ -1,6 +1,7 @@
 package com.dev.woo.springbootserver.service;
 
 import com.dev.woo.springbootserver.controller.dto.UserResponseDto;
+import com.dev.woo.springbootserver.controller.dto.UserSaveRequestDto;
 import com.dev.woo.springbootserver.domain.user.User;
 import com.dev.woo.springbootserver.domain.user.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -22,6 +23,13 @@ public class UserService {
     }
 
     public UserResponseDto findUserById(String id) {
-        return new UserResponseDto(userRepository.findById(id));
+        User user = userRepository.findById(id);
+
+        if (user == null) throw new IllegalArgumentException("해당 id를 가진 유저는 없습니다. (조회한 id : " + id + ")");
+        return new UserResponseDto(user);
+    }
+
+    public Long save(UserSaveRequestDto requestDto) {
+        return userRepository.save(requestDto.toEntity()).getPk();
     }
 }
