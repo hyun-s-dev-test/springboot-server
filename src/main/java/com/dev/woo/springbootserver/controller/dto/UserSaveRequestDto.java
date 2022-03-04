@@ -22,7 +22,7 @@ public class UserSaveRequestDto {
     private String password;
 
     @ApiModelProperty(notes = "성별", value = "gender", example = "남자는 M, 여자는 F")
-    private char gender;
+    private String gender;
 
     @ApiModelProperty(notes = "소셜로그인 타입(일반로그인 : none)", value = "social type", example="none")
     private String socialType;
@@ -31,7 +31,7 @@ public class UserSaveRequestDto {
     private String token;
 
     @Builder
-    public UserSaveRequestDto(String name, String id, String password, char gender, String socialType, String token) {
+    public UserSaveRequestDto(String name, String id, String password, String gender, String socialType, String token) {
         this.name = name;
         this.id = id;
         this.password = password;

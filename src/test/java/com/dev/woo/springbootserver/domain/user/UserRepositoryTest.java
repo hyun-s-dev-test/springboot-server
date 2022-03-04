@@ -27,7 +27,7 @@ public class UserRepositoryTest {
     public void 유저저장후_불러오기() throws Exception {
         // given
         User user = new User("테스트", "test", "password",
-                'M', "none", LocalDate.now(),"", Role.USER);
+                "M", "none", LocalDate.now(),"", Role.USER);
         // save
         userRepository.save(User.builder()
                 .id(user.getId())

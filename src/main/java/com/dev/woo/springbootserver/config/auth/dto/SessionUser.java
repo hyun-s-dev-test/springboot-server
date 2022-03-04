@@ -13,7 +13,7 @@ public class SessionUser implements Serializable {
     private String password;
     private String token;
     private String socialType;
-    private char gender;
+    private String gender;
     private LocalDate birth;
 
 

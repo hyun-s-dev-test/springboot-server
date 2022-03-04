@@ -18,7 +18,7 @@ public class UserResponseDto {
     @ApiModelProperty(value = "id", notes = "아이디", example = "0woodev", required = false)
     private final String id;
     @ApiModelProperty(value = "gender", notes = "성별", example = "M", required = false)
-    private final char gender;
+    private final String gender;
     @ApiModelProperty(value = "birth", notes = "생일", example = "1997-07-28", required = false)
     private final LocalDate birth;
     @ApiModelProperty(value = "social type", notes = "소셜로그인 종류", example = "none", required = false)

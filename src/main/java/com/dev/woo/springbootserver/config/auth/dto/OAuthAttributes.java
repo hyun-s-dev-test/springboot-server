@@ -18,13 +18,13 @@ public class OAuthAttributes {
     private String token;
     private String socialType;
     private LocalDate birth;
-    private char gender;
+    private String gender;
     private Role role;
 
     @Builder
     public OAuthAttributes(Map<String, Object> attributes, String nameAttributeKey,
                            String name, String id, String password, String token,
-                           String socialType, LocalDate birth, char gender, Role role) {
+                           String socialType, LocalDate birth, String gender, Role role) {
         this.attributes = attributes;
         this.nameAttributeKey = nameAttributeKey;
         this.name = name;
@@ -54,7 +54,7 @@ public class OAuthAttributes {
         return OAuthAttributes.builder()
                 .name((String) response.get("name"))
                 .id((String) response.get("email"))
-                .gender((char) response.get("gender"))
+                .gender((String) response.get("gender"))
                 .password("1234")
                 .token("")
                 .socialType("naver")
@@ -71,7 +71,7 @@ public class OAuthAttributes {
         return OAuthAttributes.builder()
                 .name((String) response.get("name"))
                 .id((String) response.get("email"))
-                .gender((char) response.get("gender"))
+                .gender((String) response.get("gender"))
                 .password("1234")
                 .token("")
                 .socialType("kakao")
@@ -86,7 +86,7 @@ public class OAuthAttributes {
         return OAuthAttributes.builder()
                 .name((String) attributes.get("name"))
                 .id((String) attributes.get("email"))
-                .gender((char) attributes.get("gender"))
+                .gender((String) attributes.get("gender"))
                 .password("1234")
                 .token("")
                 .socialType("google")
